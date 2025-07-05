@@ -398,10 +398,6 @@ function injectLoader() {
 
             log("Loading Mods...");
 
-            clientcode = clientcode.replace(`for(E=function(t){return function(e){var i;if(i=document.createElement("span"),i.style.background="linear-gradient(135deg,hsl("+e+",70%,60%) 0%,hsl("+e+",70%,40%) 100%)",i.setAttribute("data-hue",e),i.addEventListener("click",function(i){return t.setColor(e)}),d.appendChild(i),108===e||228===e)return d.appendChild(document.createElement("br"))}}(this),H=Et=0,pt=12;Et<=348;H=Et+=pt)`, `for(E=function(t){return function(e){var i;if(i=document.createElement("span"),i.style.background="linear-gradient(135deg,hsl("+e+",70%,60%) 0%,hsl("+e+",70%,40%) 100%)",i.setAttribute("data-hue",e),i.addEventListener("click",function(i){return t.setColor(e)}),d.appendChild(i),108===e||228===e)return d.appendChild(document.createElement("br"))}}(this),H=Et=0,pt=1;Et<=360;H=Et+=pt)`);
-            clientcode = clientcode.replace(`for(E=function(t){return function(e){var i;if(i=document.createElement("span"),i.style.background="linear-gradient(135deg,hsl("+e+",70%,60%) 0%,hsl("+e+",70%,40%) 100%)",i.setAttribute("data-hue",e),i.addEventListener("click",function(i){return t.setColor(e)}),d.appendChild(i),108===e||228===e)return d.appendChild(document.createElement("br"))}}`, `for(E=function(t){return function(e){var i;if(i=document.createElement("span"),i.style.background="linear-gradient(135deg,hsl("+e+",70%,60%) 0%,hsl("+e+",70%,40%) 100%)",i.setAttribute("data-hue",e),i.addEventListener("click",function(i){return t.setColor(e)}),d.appendChild(i),360===e||360===e)return d.appendChild(document.createElement("br"))}}`);
-
-
             //Badge Manager
             const localStorageKey = "accessible_badges";
             const localStorageData = localStorage.getItem(localStorageKey);
