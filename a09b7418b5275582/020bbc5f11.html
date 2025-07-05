@@ -1089,10 +1089,6 @@ function injectLoader() {
                 clientcode = clientcode.replace("https://services.vlitag.com/adv1/?q=d793231a9b4f6e8faec120e19a2c5578", "https://ads.blocked");
                 clientcode = clientcode.replace("https://sdk.crazygames.com/crazygames-sdk-v1.js", "https://ads.blocked");
                 clientcode = clientcode.replace("api.adinplay.com/libs/aiptag/pub/NRN/starblast.io/tag.min.js", "ads.blocked");
-                clientcode = clientcode.replace('<script src="https://cdnjs.cloudflare.com/ajax/libs/blockadblock/3.2.1/blockadblock.min.js" integrity="sha256-3zU5Lr4nIt3K/BgGOQMduajtZcPV9elIM/23RDXRp3o=" crossorigin="anonymous"></script>', '');
-                clientcode = clientcode.replace('<script src="https://starblast.io/static/js/atcb.min.js"></script>', '');
-                clientcode = clientcode.replace('<div id="cgbottom" class="adsbyvli" data-ad-slot="vi_462315138"></div><br>', '');
-
                 modlog("removeADS", "ADs removed");
             }
 
