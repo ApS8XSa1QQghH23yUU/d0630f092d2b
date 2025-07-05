@@ -344,6 +344,7 @@ const modColors = {
     packetUncap: "hsl(122 100% 57.6%)",
     multipleHue: "hsl(139 100% 57.6%)",
     removeScreenshot: "hsl(156 100% 57.6%)",
+    survivalTimer: "hsl(60 100% 57.6%)",
 
 
 };
@@ -720,6 +721,11 @@ function injectLoader() {
                 modlog("ecpCheck", "ECP Check hotkey Shift+E");
             }
 
+            const survivalTimer = localStorage.getItem("survivalTimer");
+            if (survivalTimer === "true") {
+                !function(){"use strict";if(!location.href.includes("starblast.io"))return;let t=document.createElement("div");t.id="timer",Object.assign(t.style,{position:"absolute",top:"0px",left:"0px",color:"hsl(152.82deg 100% 50% / 95%)",fontFamily:"arial",fontSize:"20px",pointerEvents:"none"}),t.textContent="Survival Timer: N/A",document.body.appendChild(t);let n=0,e=null,o=null;function s(){let e=Math.floor(n/60).toString().padStart(2,"0"),o=(n%60).toString().padStart(2,"0");t.textContent=`Survival Timer: ${e}:${o}`}function i(){e&&clearInterval(e),e=setInterval(()=>{n>0?(n--,s()):clearInterval(e)},1e3)}function r(){let e=function t(){let n=window.location.hash.substring(1),e=n.split("@")[0];return/^\d+$/.test(e)?e:null}();e&&e!==o&&(o=e,function e(o,r=0){fetch("https://starblast.io/simstatus.json").then(t=>t.json()).then($=>{for(let a of $){if(!a.systems)continue;let l=a.systems.find(t=>t.id===parseInt(o));if(l){let d=l.time,f=(d/60-30)*60;n=Math.abs(Math.floor(f)),s(),i();return}}r<6?setTimeout(()=>e(o,r+1),5e3):(t.textContent="System not found",console.warn("System ID not found at simstatus."))}).catch(t=>{console.error("Fetch error:",t),setTimeout(()=>e(o,r+1),5e3)})}(e))}window.addEventListener("hashchange",r),window.addEventListener("DOMContentLoaded",r),setInterval(r,2e3)}();
+                modlog("survivalTimer", "Survival timer executed");
+            }
 
             //Movebox for Multibox
             const movBox = localStorage.getItem("movBox");
@@ -1839,6 +1845,10 @@ window.defendPod=function(){let _0x15cc6d=Object.values(Object.values(window.mod
                                 label: "Remove Screenshots"
                             },
                             {
+                                id: "survival_timer",
+                                label: "Survival Timer"
+                            },
+                            {
                                 id: "move_box",
                                 label: "Movebox"
                             },
@@ -2051,6 +2061,7 @@ window.defendPod=function(){let _0x15cc6d=Object.values(Object.values(window.mod
                                 "obj_replace": "objReplace",
                                 "ecp_check": "ecpCheck",
                                 "remove_screenshot": "removeScreenshot",
+                                "survival_timer": "survivalTimer",
                                 "move_box": "movBox",
                                 "fast_spawn": "fastSpawn",
                                 "auto_respawn": "autoRespawn",
