@@ -288,8 +288,6 @@
     <script>
 const modlog = (modName, msg) => {
     if (typeof msg === "undefined") {
-        console.warn(`[modlog] Eksik mesaj: ${modName}`);
-        return;
     }
     const color = modColors[modName] || "#ffffff";
     console.log(`%c[+] ${msg}`, `color: ${color}`);
@@ -348,8 +346,8 @@ const modColors = {
 
 
 };
-const log = (msg) => console.log(`%c[EOT Client] ${msg}`, "color: #68ff57");
-const stylelog = (msg) => console.log(`%c[Style] ${msg}`, "color: #9266fa");
+const log = (msg) => console.log(`%c[EOT Client] ${msg}`, "color:rgba(87, 255, 143, 0.9)");
+const stylelog = (msg) => console.log(`%c[Style] ${msg}`, "color:rgb(250, 102, 146)");
 document.open();
 document.write("<html><head><title>Loading...</title></head><body style=\"background-color:#000;\"><div style=\"margin: auto; width: 50%;\"><h1 style=\"text-align: center;padding: 170px 0;\">Loading mods</h1><h1 style=\"text-align: center;\">Please wait</h1></div></body></html>");
 document.close();
@@ -404,10 +402,6 @@ function injectLoader() {
             const localStorageData = localStorage.getItem(localStorageKey);
 
             if (!localStorageData) {
-                console.warn(
-                    `Local storage key "${localStorageKey}" not found or empty. Nothing will be loaded.`
-                );
-            } else {
                 const badgegersData = JSON.parse(localStorageData);
 
                 if (Array.isArray(badgegersData) && badgegersData.length > 0) {
@@ -455,6 +449,7 @@ function injectLoader() {
             const extraMaterials = localStorage.getItem("extraMaterials");
             const customatcolor = localStorage.getItem("customatcolor");
             const customspecular = localStorage.getItem("customspecular");
+            //const specularHex = parseInt(customspecular.replace('#', ''), 16);
             const custombumpscale = localStorage.getItem("custombumpscale");
             const matshininess = localStorage.getItem("matshininess");
             if (extraMaterials === "true") {
